@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joystick Microsoft Xbox Nueva Generación Carbon Black Color Negro Wireless Controller Series X|S</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Mercado Libre</div>
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Buscar productos, marcas y más...">
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="product-header">
+            <h1 class="product-title">Joystick Microsoft Xbox Nueva Generación Carbon Black Color Negro Wireless Controller Series X|S</h1>
+            <div class="product-price">$ 129.999</div>
+        </div>
+        
+        <section class="qa-section">
+            <h2 class="qa-title">Preguntas y respuestas</h2>
+            <div class="ask-question">
+                <h3>¿Qué querés saber?</h3>
+                <form action="/add_question" method="POST" enctype="application/x-www-form-urlencoded">
+                    <input type="text" name="question" class="question-input" placeholder="Escribí tu pregunta..."/>
+                    <button class="ask-btn" type="submit">Preguntar</button>
+                </form>
+            </div>
+            
+            <div class="qa-list">
+                {% for question, answer, aigenerated in data %}
+                <div class="qa-item">
+                    <div class="question">
+                        <span class="question-icon">P:</span>
+                        <span class="question-text">{{question}}</span>
+                    </div>
+                    <div class="answer">
+                        <span class="answer-icon">R:</span>
+                        <span class="answer-text">{{answer}}</span>
+                    </div>
+                    {% if aigenerated %}
+                    <div class="answer-ia">Respuesta generada por IA ✨</div>
+                    {% else %}
+                    <div class="answer-meta">Respondido por PlayStation Official Store hace 2 días</div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+        </section>
+    </div>
+</body>
+</html>
