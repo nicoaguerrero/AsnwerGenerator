@@ -41,6 +41,7 @@ def main():  # put application's code here
     cur.execute("""
     SELECT question, answer, aigenerated 
     FROM product_qa
+    ORDER BY id DESC
     """)
 
     data = cur.fetchall()
